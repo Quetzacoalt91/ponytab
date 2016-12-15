@@ -1,0 +1,84 @@
+img.polaroid {
+    background: #fff;
+    //display: inline;
+    float: left;
+    margin: 0 0 27px 30px;
+    max-width: 400px;
+    padding: 10px 10px 35px;
+    text-align: center;
+    font-family: "Marker Felt",sans-serif;
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    overflow:hidden;
+    
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    
+    -webkit-transform: rotate(10deg);
+    -moz-transform: rotate(10deg);
+    
+    position: absolute;
+    
+    top: 10%;
+    left: 23%;
+    
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+    -moz-box-shadow: 0 3px 6px rgba(0,0,0,.25);
+
+    /* Rotate all even images 2 degrees */
+    &:nth-child(even) {
+        top: 55%;
+        left: 38%;
+        -webkit-transform: rotate(2deg);
+        -moz-transform: rotate(2deg);
+    }
+
+    /* Don't rotate every third image, but offset its position */
+    &:nth-child(3n) {
+        top: 35%;
+        left: 10%;
+        -webkit-transform: rotate(-2deg);
+        -moz-transform: rotate(-2deg);
+    }
+    
+    &:nth-child(4n) {
+        top: 0%;
+        left: 50%;
+        -webkit-transform: rotate(-7deg);
+        -moz-transform: rotate(-7deg);
+    }
+
+    /* Rotate every fifth image by 5 degrees and offset it */
+    &:nth-child(5n) {
+        top: 70%;
+        left: 65%;
+        -webkit-transform: rotate(5deg);
+        -moz-transform: rotate(5deg);
+    }
+    
+    &:nth-child(6n) {
+        top: 15%;
+        left: 5%;
+        -webkit-transform: rotate(4deg);
+        -moz-transform: rotate(4deg);
+    }
+
+    &:nth-child(7n) {
+        top: 5%;
+        left: 65%;
+        -webkit-transform: rotate(60deg);
+        -moz-transform: rotate(60deg);
+    }
+
+            
+    &.my-hidden {
+        visibility:hidden;
+        -webkit-transform: rotate(180deg) translateY(-50em);
+        -moz-transform: rotate(180deg) translateY(-50em);
+        -o-transform: rotate(180deg) translateY(-50em);
+        transform: rotate(180deg) translateY(-50em);
+    }
+}
