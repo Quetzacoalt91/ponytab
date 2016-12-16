@@ -53,6 +53,11 @@ return [
             'accessToken' => env('DROPBOX_TOKEN', ''),
             'clientIdentifier' => env('DROPBOX_IDENTIFIER', ''),
         ],
+        
+        'photos_cache' => [
+            'driver' => 'local',
+            'root' => storage_path('app/photos'),
+        ],
 
         'public' => [
             'driver' => 'local',

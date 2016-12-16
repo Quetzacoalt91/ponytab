@@ -10,19 +10,19 @@ img.polaroid {
     text-decoration: none;
     color: #333;
     font-size: 18px;
-    overflow:hidden;
+    overflow: hidden;
     
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+    -webkit-transition: all 0.7s ease-out;
+    -moz-transition: all 0.7s ease-out;
+    -o-transition: all 0.7s ease-out;
+    transition: all 0.7s ease-out;
     
     -webkit-transform: rotate(10deg);
     -moz-transform: rotate(10deg);
     
     position: absolute;
     
-    top: 10%;
+    top: 0%;
     left: 23%;
     
     -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.25);
@@ -30,7 +30,7 @@ img.polaroid {
 
     /* Rotate all even images 2 degrees */
     &:nth-child(even) {
-        top: 55%;
+        top: 45%;
         left: 38%;
         -webkit-transform: rotate(2deg);
         -moz-transform: rotate(2deg);
@@ -38,14 +38,14 @@ img.polaroid {
 
     /* Don't rotate every third image, but offset its position */
     &:nth-child(3n) {
-        top: 35%;
+        top: 25%;
         left: 10%;
         -webkit-transform: rotate(-2deg);
         -moz-transform: rotate(-2deg);
     }
     
     &:nth-child(4n) {
-        top: 0%;
+        top: -10%;
         left: 50%;
         -webkit-transform: rotate(-7deg);
         -moz-transform: rotate(-7deg);
@@ -53,21 +53,21 @@ img.polaroid {
 
     /* Rotate every fifth image by 5 degrees and offset it */
     &:nth-child(5n) {
-        top: 70%;
+        top: 60%;
         left: 65%;
         -webkit-transform: rotate(5deg);
         -moz-transform: rotate(5deg);
     }
     
     &:nth-child(6n) {
-        top: 15%;
+        top: 5%;
         left: 5%;
         -webkit-transform: rotate(4deg);
         -moz-transform: rotate(4deg);
     }
 
     &:nth-child(7n) {
-        top: 5%;
+        top: -5%;
         left: 65%;
         -webkit-transform: rotate(60deg);
         -moz-transform: rotate(60deg);
@@ -80,5 +80,25 @@ img.polaroid {
         -moz-transform: rotate(180deg) translateY(-50em);
         -o-transform: rotate(180deg) translateY(-50em);
         transform: rotate(180deg) translateY(-50em);
+    }
+}
+
+#clock {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    margin: 1em;
+    z-index: 1000;
+    color: white;
+    text-shadow: 0px 0px 70px #888888;
+    font-size: 52px;
+    line-height: 120px;
+    
+    .clock span {
+        display: block;
+        
+        &:first-child {
+            font-size: 200px;
+        }
     }
 }

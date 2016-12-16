@@ -15,17 +15,29 @@ class IndexController extends Controller
                 return url('/content/'.base64_encode($file));
             }, Storage::disk('photos')->allFiles('')),
         );
+        shuffle($data['pictures']);
         return view('slideshow.main', $data);
     }
     
     public function content(Request $request, $file)
     {
         $filename = base64_decode($file);
+        
+        if (!Storage::disk('photos_cache')->has($filename)) {
+            Storage::disk('photos_cache')->put($filename, 
+                Storage::disk('photos')->get($filename));
+        }
+        
+        return $this->sendContent('photos_cache', $filename);
+    }
+    
+    private function sendContent($driver, $filename)
+    {
         $headers = array(
-            'Content-Type'     => Storage::disk('photos')->mimeType($filename),
+            'Content-Type'     => Storage::disk($driver)->mimeType($filename),
             'Content-Disposition' => 'inline; filename="'.$filename.'"');
         return (new Response(
-            Storage::disk('photos')->get($filename), 
+            Storage::disk($driver)->get($filename), 
             200, 
             $headers
         ));
