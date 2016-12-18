@@ -7688,6 +7688,50 @@ button.close {
   }
 }
 
+.overlay.night {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: black;
+  /* Black fallback color */
+  overflow-x: hidden;
+  /* Disable horizontal scroll */
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: block;
+  opacity: 0.9;
+}
+
+.overlay.night #clock {
+  color: #888888;
+  text-shadow: unset;
+}
+
+.overlay #clock {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin: 1em;
+  z-index: 1000;
+  color: white;
+  text-shadow: 0px 0px 70px #888888;
+  font-size: 52px;
+  line-height: 120px;
+}
+
+.overlay #clock .clock span {
+  display: block;
+}
+
+.overlay #clock .clock span:first-child {
+  font-size: 200px;
+}
+
 img.polaroid {
   background: #fff;
   float: left;
@@ -7760,26 +7804,6 @@ img.polaroid.my-hidden {
   visibility: hidden;
   -webkit-transform: rotate(180deg) translateY(-50em);
   transform: rotate(180deg) translateY(-50em);
-}
-
-#clock {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  margin: 1em;
-  z-index: 1000;
-  color: white;
-  text-shadow: 0px 0px 70px #888888;
-  font-size: 52px;
-  line-height: 120px;
-}
-
-#clock .clock span {
-  display: block;
-}
-
-#clock .clock span:first-child {
-  font-size: 200px;
 }
 
 /*# sourceMappingURL=app.css.map */

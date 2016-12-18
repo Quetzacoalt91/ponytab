@@ -14,6 +14,9 @@ var slideShow = function() {
             pictures = srcPictures;
         },
         showOne: function() {
+            if (0 !== $('.night').length) {
+                return;
+            }
             if (0 === pictures.length) {
                 //location.reload();
             }

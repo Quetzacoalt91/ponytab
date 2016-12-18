@@ -1,3 +1,44 @@
+.overlay {
+    &.night {
+        height: 100%;
+        width: 100%;
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        background-color: rgb(0,0,0); /* Black fallback color */
+        overflow-x: hidden; /* Disable horizontal scroll */
+        transition: 0.5s;
+        display:block;
+        opacity: 0.9;
+        
+        #clock {
+            color: #888888;
+            text-shadow: unset;
+        }
+    }
+    
+    #clock {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin: 1em;
+        z-index: 1000;
+        color: white;
+        text-shadow: 0px 0px 70px #888888;
+        font-size: 52px;
+        line-height: 120px;
+
+        .clock span {
+            display: block;
+
+            &:first-child {
+                font-size: 200px;
+            }
+        }
+    }
+}
+
 img.polaroid {
     background: #fff;
     //display: inline;
@@ -80,25 +121,5 @@ img.polaroid {
         -moz-transform: rotate(180deg) translateY(-50em);
         -o-transform: rotate(180deg) translateY(-50em);
         transform: rotate(180deg) translateY(-50em);
-    }
-}
-
-#clock {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    margin: 1em;
-    z-index: 1000;
-    color: white;
-    text-shadow: 0px 0px 70px #888888;
-    font-size: 52px;
-    line-height: 120px;
-    
-    .clock span {
-        display: block;
-        
-        &:first-child {
-            font-size: 200px;
-        }
     }
 }
