@@ -23,7 +23,8 @@ class IndexController extends Controller
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos')->allFiles(''));
         } catch (Exception $e) {
-            $data['pictures'] = array_map(function($file) {
+            dump($e);
+		$data['pictures'] = array_map(function($file) {
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos_cache')->allFiles(''));
         }

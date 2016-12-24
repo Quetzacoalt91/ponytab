@@ -3,10 +3,10 @@ var slideShow = function() {
     
     var cleanUp = function() {
         var imgs = $("img.polaroid");
-        if (imgs.length < 15) {
+        if (imgs.length < 10) {
             return;
         }
-        imgs.first().hide();
+        imgs.first().hide().html('');
     };
     
     return {
@@ -18,24 +18,24 @@ var slideShow = function() {
                 return;
             }
             if (0 === pictures.length) {
-                //location.reload();
+                location.reload();
             }
             var url = pictures.shift();            
-            var img = $("<img class='polaroid my-hidden' />").attr('src', url)
+            var img = $("<img class='polaroid' />").attr('src', url)
                 .on('load', function() {
                     if (this.complete && typeof this.naturalWidth != "undefined" && this.naturalWidth > 0) {
                         $("#slideShowPanel").append(img);
                         
                        cleanUp();
-                        setTimeout(function() {
+                        /*setTimeout(function() {
                             img.removeClass('my-hidden');
-                        }, 100);
+                        }, 100);*/
                     }
                 });
         },
         start: function() {
             setInterval('slideShow.showOne()', 5000);
-            this.showOne();
+            //this.showOne();
         }
     };
 };
