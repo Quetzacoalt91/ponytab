@@ -23,7 +23,6 @@ class IndexController extends Controller
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos')->allFiles(''));
         } catch (Exception $e) {
-            dump($e);
 		$data['pictures'] = array_map(function($file) {
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos_cache')->allFiles(''));
@@ -37,8 +36,11 @@ class IndexController extends Controller
         $filename = base64_decode($file);
         
         if (!Storage::disk('photos_cache')->has($filename)) {
+            $image = new \Imagick();
+            $image->readImageBlob(Storage::disk('photos')->get($filename));
+            $image->thumbnailImage(600, 600, true);
             Storage::disk('photos_cache')->put($filename, 
-                Storage::disk('photos')->get($filename));
+                $image->getImageBlob());
         }
         
         return $this->sendContent('photos_cache', $filename);
