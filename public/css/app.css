@@ -7806,4 +7806,8 @@ img.polaroid.my-hidden {
   transform: rotate(180deg) translateY(-50em);
 }
 
+body {
+  overflow: hidden;
+}
+
 /*# sourceMappingURL=app.css.map */
