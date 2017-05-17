@@ -38,7 +38,7 @@ class IndexController extends Controller
         if (!Storage::disk('photos_cache')->has($filename)) {
             $image = new \Imagick();
             $image->readImageBlob(Storage::disk('photos')->get($filename));
-            $image->thumbnailImage(600, 600, true);
+            $image->thumbnailImage(550, 550, true);
             Storage::disk('photos_cache')->put($filename, 
                 $image->getImageBlob());
         }
