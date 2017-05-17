@@ -21,21 +21,20 @@ var slideShow = function() {
                 location.reload();
             }
             var url = pictures.shift();            
-            var img = $("<img class='polaroid' />").attr('src', url)
+            var img = $("<img class='polaroid my-hidden' />").attr('src', url)
                 .on('load', function() {
                     if (this.complete && typeof this.naturalWidth != "undefined" && this.naturalWidth > 0) {
                         $("#slideShowPanel").append(img);
                         
                        cleanUp();
-                        /*setTimeout(function() {
+                        setTimeout(function() {
                             img.removeClass('my-hidden');
-                        }, 100);*/
+                        }, 500);
                     }
                 });
         },
         start: function() {
-            setInterval('slideShow.showOne()', 5000);
-            //this.showOne();
+            setInterval('slideShow.showOne()', 10000);
         }
     };
 };
