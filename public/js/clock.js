@@ -8,13 +8,13 @@ var clock = function() {
             if ((n < 10 || n >= 22) && !overlay.hasClass('night')) {
                 console.log('Switching to night mode');
                 $("#clockOverlay").addClass('night');
-            } else if (overlay.hasClass('night')) {
+            } else if (n >= 10 && n < 22 && overlay.hasClass('night')) {
                 console.log('Switching to day mode');
                 $("#clockOverlay").removeClass('night');
             }
         },
         start: function() {
-            setInterval('clock().check()', 10000);
+            setInterval('clock().check()', 30000);
         }
     };
 };

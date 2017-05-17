@@ -7736,7 +7736,8 @@ img.polaroid {
   background: #fff;
   float: left;
   margin: 0 0 27px 30px;
-  max-width: 400px;
+  max-width: 550px;
+  max-height: 550px;
   padding: 10px 10px 35px;
   text-align: center;
   font-family: "Marker Felt",sans-serif;
@@ -7804,6 +7805,10 @@ img.polaroid.my-hidden {
   visibility: hidden;
   -webkit-transform: rotate(180deg) translateY(-50em);
   transform: rotate(180deg) translateY(-50em);
+}
+
+body {
+  overflow: hidden;
 }
 
 /*# sourceMappingURL=app.css.map */

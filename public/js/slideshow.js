@@ -3,10 +3,10 @@ var slideShow = function() {
     
     var cleanUp = function() {
         var imgs = $("img.polaroid");
-        if (imgs.length < 15) {
+        if (imgs.length < 10) {
             return;
         }
-        imgs.first().hide();
+        imgs.first().hide().html('');
     };
     
     return {
@@ -18,7 +18,7 @@ var slideShow = function() {
                 return;
             }
             if (0 === pictures.length) {
-                //location.reload();
+                location.reload();
             }
             var url = pictures.shift();            
             var img = $("<img class='polaroid my-hidden' />").attr('src', url)
@@ -29,13 +29,12 @@ var slideShow = function() {
                        cleanUp();
                         setTimeout(function() {
                             img.removeClass('my-hidden');
-                        }, 100);
+                        }, 500);
                     }
                 });
         },
         start: function() {
-            setInterval('slideShow.showOne()', 5000);
-            this.showOne();
+            setInterval('slideShow.showOne()', 10000);
         }
     };
 };
