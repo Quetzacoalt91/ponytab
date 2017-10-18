@@ -17,8 +17,8 @@ window.$ = $;
  * the application, or feel free to tweak this setup for your needs.
  */
 
-/*Vue.component('example', require('./components/Example.vue'));
+Vue.component('slideshow', require('./components/Slideshow.vue'));
 
-const app = new Vue({
-    el: '#app'
-});*/
+var ponytab = new Vue({
+    el: '#app',
+});

@@ -10,24 +10,20 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
-        
-        <script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
-
         <!-- Styles -->
         <style>
         </style>
+        <!-- Scripts -->
+        <script>
+            window.Laravel = {!! json_encode([
+                'csrfToken' => csrf_token(),
+            ]) !!}
+        </script>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    <a href="{{ url('/login') }}">Login</a>
-                    <a href="{{ url('/register') }}">Register</a>
-                </div>
-            @endif
-
-            <div class="content">
-                @yield('content')
+        <div id="app" class="content">
+            <slideshow />
         </div>
+        <script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

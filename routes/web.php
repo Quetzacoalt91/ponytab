@@ -12,5 +12,6 @@
 */
 
 Route::get('/content/{file}', 'IndexController@content');
-Route::get('/', 'IndexController@show');
+Route::get('/content', 'IndexController@show');
+Route::get('/', function() { return view('global'); });
 

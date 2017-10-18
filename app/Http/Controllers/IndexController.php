@@ -11,24 +11,18 @@ class IndexController extends Controller
 {
     public function show (Request $request)
     {
-        $data = array();
-        $courrentHour = date('H');
-        if ($courrentHour < 10 || $courrentHour >= 22) {
-            $data['nightMode'] = 'night';
-        } else {
-            $data['nightMode'] = '';
-        }
+        $data = [];
         try {
-            $data['pictures'] = array_map(function($file) {
+            $data = array_map(function($file) {
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos')->allFiles(''));
         } catch (Exception $e) {
-		$data['pictures'] = array_map(function($file) {
+		    $data = array_map(function($file) {
                     return url('/content/'.base64_encode($file));
                 }, Storage::disk('photos_cache')->allFiles(''));
         }
-        shuffle($data['pictures']);
-        return view('slideshow.main', $data);
+        shuffle($data);
+        return response()->json($data);
     }
     
     public function content(Request $request, $file)
