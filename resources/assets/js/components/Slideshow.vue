@@ -17,22 +17,17 @@
 <script>
     export default {
         data: () => ({
-            night: true,
             photos: [],
             range: 0,
         }),
-        methods: {
-            checkTime() {
+        computed: {
+            night: function () {
                 const n = (new Date()).getHours();
 
-                if ((n < 10 || n >= 22) && !this.night) {
-                    console.log('Switching to night mode');
-                    this.night = true;
-                } else if (n >= 10 && n < 22 && this.night) {
-                    console.log('Switching to day mode');
-                    this.night = false;
-                }
+                return (n < 10 || n >= 22);
             },
+        },
+        methods: {
             getPhotos() {
                 this.$http.get('content').then((response) => {
                     this.photos = response.data;
@@ -46,7 +41,7 @@
         },
         mounted() {
             console.log('Component ready.');
-            this.checkTime();
+            console.log('Night mode', this.night);
             this.getPhotos();
         }
     }
