@@ -17,6 +17,7 @@ window.$ = $;
  * the application, or feel free to tweak this setup for your needs.
  */
 
+Vue.component('photo', require('./components/Photo.vue'));
 Vue.component('slideshow', require('./components/Slideshow.vue'));
 
 var ponytab = new Vue({
