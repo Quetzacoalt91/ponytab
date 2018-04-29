@@ -10,7 +10,7 @@
             </div>
         </div>
   
-        <button type="button" v-on:click="addPhoto()">Display 1 photo</button>
+        <button type="button" class="hidden" v-on:click="addPhoto()">Display 1 photo</button>
     </div>
 </template>
 
@@ -36,13 +36,19 @@
             addPhoto() {
                 if (this.range < this.photos.length) {
                     this.range += 1;
+                } else {
+                    this.range = 0;
+                    this.getPhotos();
                 }
-            },
+            }
         },
         mounted() {
             console.log('Component ready.');
             console.log('Night mode', this.night);
             this.getPhotos();
+            setInterval(() => {
+                this.addPhoto();
+            }, 10000);
         }
     }
 </script>
