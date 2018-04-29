@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+    apache:
+        build: ./docker-files
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./:/var/www/html/
+            - ./docker-files/apache.docker.conf:/etc/apache2/sites-enabled/apache.docker.conf
+        command: ["bash", "docker-files/docker-run.sh"]
+
