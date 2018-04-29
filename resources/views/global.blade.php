@@ -24,6 +24,7 @@
         <div id="app" class="content">
             <slideshow />
         </div>
+        <script src="//widget.time.is/fr.js"></script>
         <script type="application/javascript" src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

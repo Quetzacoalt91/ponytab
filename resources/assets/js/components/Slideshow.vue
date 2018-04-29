@@ -4,10 +4,7 @@
             <photo v-bind:url="photos[photo]" v-for="photo in range"></photo>
         </div>
         <div id="clockOverlay" class="overlay" v-bind:class="{ night: night }">
-            <div id="clock">
-                <a href="https://time.is/London" id="time_is_link" rel="nofollow"></a>
-                <span class="clock" id="London_z716"></span>
-            </div>
+            <clock />
         </div>
   
         <button type="button" class="hidden" v-on:click="addPhoto()">Display 1 photo</button>

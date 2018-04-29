@@ -19,6 +19,7 @@ window.$ = $;
 
 Vue.component('photo', require('./components/Photo.vue'));
 Vue.component('slideshow', require('./components/Slideshow.vue'));
+Vue.component('clock', require('./components/Clock.vue'));
 
 var ponytab = new Vue({
     el: '#app',
